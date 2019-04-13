@@ -24,6 +24,20 @@
 	margin: 0;
 }
 
+/* Help */
+.fs-help {
+	position: absolute;
+	top: 0;
+	left: 100;
+	margin: 0;
+	padding: 40px;
+	width: 100%;
+}
+
+.fs-help h1 {
+	margin: 0;
+}
+
 /* Form */
 .fs-form {
 	position: relative;
@@ -828,6 +842,10 @@ input[type=text]::-ms-clear {
 		padding: 20px;
 	}
 
+	.fs-help {
+		padding: 20px;
+	}
+
 	.fs-numbers {
 		margin: 20px;
 	}
@@ -845,6 +863,7 @@ input[type=text]::-ms-clear {
 		height: 50px;
 		border-radius: 50%;
 		font-size: 2em;
+
 	}
 
 	button.fs-continue::before {
