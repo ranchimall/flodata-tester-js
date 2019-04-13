@@ -4,7 +4,8 @@
 	position: absolute;
 	display: block;
 	margin: 0 auto;
-	right: 0;
+	right: 10px;
+	top: 10px;
 }
 
 .morph-button > button {
@@ -18,7 +19,8 @@
 	font-weight: 700;
 	line-height: 80px;
 	overflow: hidden;
-	right: 0;
+	right: 10px;
+	top: 10px;
 }
 
 .morph-button.open > button {

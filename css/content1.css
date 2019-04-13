@@ -123,6 +123,16 @@
 	font-size: 1.5em;
 }
 
+.content-style-overlay li {
+	margin: 0 auto;
+	padding: 10px 0;
+	max-width: 625px;
+	text-align: justify;
+	font-weight: 300;
+	font-size: 1.5em;
+}
+
+
 .content-style-overlay .icon-close {
 	border: 2px solid #f9e1c9;
 	border-radius: 50%;

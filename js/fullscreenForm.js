@@ -194,14 +194,12 @@
                 parsed_data = { 'type': 'noise', 'flodata': nospacestring };
             } else if (incorporation && !transfer) {
                 var initTokens = extractInitTokens(cleanstring);
-                var address = extractAddress(nospacestring);
-                if (initTokens != 0 && address != 0) {
+                if (initTokens != 0) {
                     parsed_data = {
                         'type': 'tokenIncorporation',
-                        'flodata': cleanstring,
+                        'flodata': nospacestring,
                         'tokenIdentification': hashList[0].slice(0, hashList[0].length - 1),
-                        'tokenAmount': initTokens,
-                        'address': address.slice(0, address.length - 1)
+                        'tokenAmount': initTokens
                     };
                 } else {
                     parsed_data = { 'type': 'noise', 'flodata': nospacestring };
@@ -211,15 +209,13 @@
             // todo Rule 31 - Extract number of tokens to be sent and the address to which to be sent, both data is mandatory
             else if (!incorporation && transfer) {
                 var amount = extractAmount(cleanstring, hashList[0].slice(0, hashList[0].length - 1));
-                var address = extractAddress(nospacestring);
-                if (amount != 0 && address != 0) {
+                if (amount != 0) {
                     parsed_data = {
                         'type': 'transfer',
                         'transferType': 'token',
-                        'flodata': cleanstring,
+                        'flodata': nospacestring,
                         'tokenIdentification': hashList[0].slice(0, hashList[0].length - 1),
-                        'tokenAmount': amount,
-                        'address': address.slice(0, address.length - 1)
+                        'tokenAmount': amount
                     };
                 } else {
                     parsed_data = { 'type': 'noise', 'flodata': nospacestring };
@@ -496,9 +492,9 @@
                     ol.setAttribute("class", "fs-fields");
 
                     if (result['type'] == 'transfer') {
-                        var fieldnames = [ { 'Type': 'Transfer' }, { 'Token name': result['tokenIdentification'] }, { 'Transfer amount': result['tokenAmount'] }, { 'Receiver\'s FLO Address': result['address'] }, {'Original FLO data': result['flodata'] }]
+                        var fieldnames = [ { 'Type': 'Transfer' }, { 'Token name': result['tokenIdentification'] }, { 'Transfer amount': result['tokenAmount'] }, {'Original FLO data': result['flodata'] }]
                     } else if (result['type'] == 'tokenIncorporation') {
-                        var fieldnames = [{ 'Type': 'Incorporation' }, { 'Token name': result['tokenIdentification'] }, { 'Transfer amount': result['tokenAmount'] }, {'Original FLO data': result['flodata'] }]
+                        var fieldnames = [{ 'Type': 'Incorporation' }, { 'Token name': result['tokenIdentification'] }, { 'Incorporation amount': result['tokenAmount'] }, {'Original FLO data': result['flodata'] }]
                     } else {
                         var fieldnames = [{ 'Type': 'Noise' }, {'Original FLO data': result['flodata'] }]
                     }
