@@ -488,15 +488,21 @@
                     div.setAttribute("id", "resultPage");
                     div.setAttribute("class", "fs-form fs-form-overview fs-show");
 
+                    var judgement = document.createElement("div");
+                    judgement.setAttribute("class", "show-result");
+
                     var ol = document.createElement('ol');
                     ol.setAttribute("class", "fs-fields");
 
                     if (result['type'] == 'transfer') {
-                        var fieldnames = [ { 'Type': 'Transfer' }, { 'Token name': result['tokenIdentification'] }, { 'Transfer amount': result['tokenAmount'] }, {'Original FLO data': result['flodata'] }]
+                        var fieldnames = [ { 'Type': 'Transfer' }, { 'Token name': result['tokenIdentification'] }, { 'Transfer amount': result['tokenAmount'] }, {'Original FLO data': result['flodata'] }];
+                        judgement.innerHTML = 'Passed!';
                     } else if (result['type'] == 'tokenIncorporation') {
-                        var fieldnames = [{ 'Type': 'Incorporation' }, { 'Token name': result['tokenIdentification'] }, { 'Incorporation amount': result['tokenAmount'] }, {'Original FLO data': result['flodata'] }]
+                        var fieldnames = [{ 'Type': 'Incorporation' }, { 'Token name': result['tokenIdentification'] }, { 'Incorporation amount': result['tokenAmount'] }, {'Original FLO data': result['flodata'] }];
+                        judgement.innerHTML = 'Passed!';
                     } else {
-                        var fieldnames = [{ 'Type': 'Noise' }, {'Original FLO data': result['flodata'] }]
+                        var fieldnames = [{ 'Type': 'Noise' }, {'Original FLO data': result['flodata'] }];
+                        judgement.innerHTML = 'Parsing failed!';
                     }
 
                     for (var i = 0; i < fieldnames.length; i++) {
@@ -525,6 +531,7 @@
                         location.href = "index.html";
                     };
 
+                    div.appendChild(judgement)
                     div.appendChild(ol);
                     div.appendChild(returnButton);
                     var formElement = document.getElementById('myform');

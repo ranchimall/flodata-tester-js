@@ -19,8 +19,6 @@
 	font-weight: 700;
 	line-height: 80px;
 	overflow: hidden;
-	right: 10px;
-	top: 10px;
 }
 
 .morph-button.open > button {

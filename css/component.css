@@ -70,11 +70,12 @@
 	font-size: 1.2em;
 }
 
-.fs-form-overview .fs-fields::before {
+
+
+.show-result {
 	display: block;
 	margin-bottom: 2.5em;
 	color: #3b3f45;
-	content: 'Parsed FLO data';
 	font-weight: 700;
 	font-size: 1.85em;
 }
