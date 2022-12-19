@@ -136,6 +136,10 @@
                     value = textList[i] * base_units[textList[i + 1]];
                     counter += 1;
                 }
+                else{
+                    value = parseFloat(textList[i]);
+                    counter = counter + 1;
+                }
             } else {
                 for (var j = 0; j < Object.keys(base_units).length; j++) {
                     var result = textList[i].split(Object.keys(base_units)[j]);
@@ -159,6 +163,7 @@
 
 
     function parse_flodata(flodata) {
+        debugger;
         if (flodata.slice(0, 5) == 'text') {
             flodata = flodata.split('text:')[1];
         }
